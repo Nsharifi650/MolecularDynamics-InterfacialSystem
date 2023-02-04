@@ -1,0 +1,125 @@
+variable	P equal 1.0 # pressure (Bar)
+variable 	T equal 300.0 # desired temperature (K)
+variable	convert equal 1.44e-5 # from Bar*A^2 to Kcal/mol/A
+
+boundary	p p p
+units		real
+atom_style	full
+bond_style	harmonic
+angle_style	harmonic
+dihedral_style  opls
+improper_style	harmonic
+
+pair_style	lj/cut/coul/long 10.0
+kspace_style	pppm 1.0e-4
+pair_modify 	shift yes mix arithmetic
+special_bonds	lj 0.0 0.0 0.5 coul 0.0 0.0 1.0 angle yes dihedral yes
+
+read_data	data.01d.lammps
+
+include 	PARM.lammps
+
+
+group		Liq type 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+group		Diamond type 20 21 22 23
+group		top molecule 1
+group		bottom molecule 2
+group		H2O type 1 2
+
+
+neigh_modify 	exclude group top top
+neigh_modify 	exclude group bottom bottom
+dump 		mydmp all atom 10000 dump.01.lammpstrj
+
+#######
+# Run #
+#######
+
+# Walls
+
+fix		s1 H2O shake 1.0e-4 200 0 b 3 a 3
+#velocity 	Liq create ${T} 84512 rot yes dist gaussian
+
+
+variable 	Nwall equal count(top)
+variable 	Surface equal lx*ly
+variable 	FzL equal ${P}*${Surface}*${convert}/${Nwall}
+variable 	FzU equal -${P}*${Surface}*${convert}/${Nwall}
+
+fix		mysf1 top setforce 0 0 NULL
+fix		mysf2 bottom setforce 0 0 NULL
+#fix		myaf1 Diamond aveforce NULL NULL 0
+
+fix 		myad1 top addforce 0 0 v_FzU
+fix 		myad2 bottom addforce 0 0 v_FzL
+
+compute	tliq Liq temp
+fix		myber Liq temp/berendsen ${T} ${T} 100
+fix_modify	myber temp tliq
+fix		myrct all recenter NULL NULL INIT
+
+
+
+fix		mynve  all nve
+
+
+
+
+timestep	0.00005
+thermo		10000
+run		1000000
+write_data	data.01a.lammps
+
+timestep	0.0001
+thermo		10000
+run		1000000
+write_data	data.01b.lammps
+
+timestep	0.0005
+thermo		10000
+run		1000000
+write_data	data.01c.lammps
+
+timestep	0.001
+thermo		10000
+run		1000000
+write_data	data.01d.lammps
+
+
+timestep	0.005
+thermo		10000
+run		1000000
+write_data	data.01e.lammps
+
+
+timestep	0.01
+thermo		10000
+run		1000000
+write_data	data.01f.lammps
+
+
+timestep	0.05
+thermo		10000
+run		1000000
+write_data	data.01g.lammps
+
+
+timestep	0.1
+thermo		10000
+run		1000000
+write_data	data.01h.lammps
+
+timestep	0.1
+thermo		10000
+run		1000000
+write_data	data.01i.lammps
+
+timestep	0.1
+thermo		10000
+run		1000000
+write_data	data.01j.lammp
+
+timestep	0.1
+thermo		10000
+run		1000000
+write_data	data.01k.lammp

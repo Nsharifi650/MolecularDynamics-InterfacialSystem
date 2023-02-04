@@ -1,0 +1,121 @@
+#masses
+
+mass 1	15.999 # water	
+mass 2	1.008 # water	
+mass 3	12.011	
+mass 4	1.008	
+mass 5	12.011	
+mass 6	1.008	
+mass 7	12.011	
+mass 8	1.008	
+mass 9	12.011	
+mass 10	12.011	
+mass 11	12.011	
+mass 12	15.999	
+mass 13	15.999	
+mass 14	12.011	
+mass 15	1.008	
+mass 16	32.06	
+mass 17	15.999	
+mass 18	15.999	
+mass 19	22.99
+mass 20	12.011	
+mass 21	12.011		
+mass 22	15.999
+mass 23	1.008	
+
+#Pair Coeffs
+
+pair_coeff 1	1	0.1553 3.166 # oxygen SPCE
+pair_coeff 2	2	0.0 0.0 # hydrogen SPCE
+pair_coeff 3	3	0.066	3.5	
+pair_coeff 4	4	0.026291	2.5	
+pair_coeff 5	5	0.066	3.5	
+pair_coeff 6	6	0.03	2.5	
+pair_coeff 7	7	0.066	3.5	
+pair_coeff 8	8	0.03	2.5	
+pair_coeff 9	9	0.066	3.5	
+pair_coeff 10	10	0.066	3.5	
+pair_coeff 11	11	0.105	3.75	
+pair_coeff 12	12	0.21	2.96	
+pair_coeff 13	13	0.17	3	
+pair_coeff 14	14	0.066	3.5	
+pair_coeff 15	15	0.03	2.5	
+pair_coeff 16	16	0.25	3.55	
+pair_coeff 17	17	0.17	2.96	
+pair_coeff 18	18	0.17	3.25	
+pair_coeff 19	19	0.002772	3.35	# AOT
+pair_coeff 20	20	0.066	3.5 #Diamond - Normal C values from dodecanol
+pair_coeff 21	21	0.066	3.5 # surface carbon - from dodecanol
+pair_coeff 22	22	0.17	3.12 # O 
+pair_coeff 23	23	0	0	# H 
+
+
+#Bond Coeffs
+
+bond_coeff 1	0.0 1.0 # dummy
+bond_coeff 2	382	1.448 #dummy	
+bond_coeff 3	0.0 1.0 # water
+bond_coeff 4	340	1.09	
+bond_coeff 5	268	1.529	
+bond_coeff 6	320	1.41	
+bond_coeff 7	570	1.229	
+bond_coeff 8	214	1.327	
+bond_coeff 9	340	1.77	
+bond_coeff 10	700	1.44	
+bond_coeff 11	434	1.67	
+bond_coeff 12	317	1.522	
+
+
+#Angle Coeffs
+
+angle_coeff 1	0.0 109.47 # water
+angle_coeff 2	80	120.4	
+angle_coeff 3	81	111.4	
+angle_coeff 4	83	123.4	
+angle_coeff 5	58.35	112.7	
+angle_coeff 6	63	111.1	
+angle_coeff 7	50	109.5	
+angle_coeff 8	33	107.8	
+angle_coeff 9	35	109.5	
+angle_coeff 10	35	109.5	
+angle_coeff 11	37.5	110.7	
+angle_coeff 12	35	109.5	
+angle_coeff 13	50	108.6	
+angle_coeff 14	83	116.9	
+angle_coeff 15	74	108.9	
+angle_coeff 16	104	119	
+angle_coeff 17	100	103	
+angle_coeff 18	120	107	
+
+
+#dihedral coeff
+
+dihedral_coeff 1	0	0	0	0	
+dihedral_coeff 2	0	0	0	0	
+dihedral_coeff 3	0	0	0	0	
+dihedral_coeff 4	0	0	-0.553	0	
+dihedral_coeff 5	0	0	0.132	0	
+dihedral_coeff 6	0	5.124	0	0	
+dihedral_coeff 7	4.669	5.124	0	0	
+dihedral_coeff 8	-4.344	-1.714	0	0	
+dihedral_coeff 9	-0.55	0	1	0	
+dihedral_coeff 10	0	0	-0.1	0	
+dihedral_coeff 11	1.3	-0.05	0.2	0	
+dihedral_coeff 12	0	0	0.3	0	
+dihedral_coeff 13	0	0	0.468	0	
+dihedral_coeff 14	0	0	0.3	0	
+dihedral_coeff 15	0	0	0.452	0	
+dihedral_coeff 16	-1.22	-0.126	0.422	0	
+dihedral_coeff 17	0	0	0.198	0	
+dihedral_coeff 18	0	0	0	0	
+dihedral_coeff 19	0	0	0	0	
+dihedral_coeff 20	0	0	0	0	
+dihedral_coeff 21	0	0	0.35	0	
+dihedral_coeff 22	1.3	-0.05	0.2	0	
+dihedral_coeff 23	0.64469	-0.21434	0.17822	0	
+	
+
+#improper coeff
+
+improper_coeff 1	10.5	180
